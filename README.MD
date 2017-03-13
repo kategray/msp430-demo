@@ -4,7 +4,7 @@
 
 This project is designed to demonstrate the usage of the [Maxim DS3231] RTC device with the Texas Instruments MSP430 16 bit low-power microcontroller.  Additionally, it demonstrates interaction with the i2c bus using a C-based application.
 
-This project is configured for the [MSP430FR5994] chip, which is present on the [EXP-MSP430FR5994] Launchpad.  For ease of implementation, we recommend the use of either the "[DS3231 for Pi]", or "[Chronodot 2.0]" boards.  These breakout boards support 5V operation and feature CR1632 batteries, good for approixmately 8 years.  The DS3231 does not require an external crystal or tuning capacitors.
+This project is configured for the [MSP430FR5994] chip, which is present on the [EXP-MSP430FR5994] Launchpad.  For ease of implementation, we recommend the use of either the "[DS3231 for Pi]", or "[Chronodot 2.0]" boards (the former being used in this guide).  These breakout boards support 5V operation and feature CR1632 batteries, good for approixmately 8 years.  The DS3231 does not require an external crystal or tuning capacitors.
 
 For reference, the [MSP430FR5994 Datasheet] contains most of the device-specific information, such as package information and specifications.  General information for the family can be found in the [Family Datasheet].
 
@@ -15,7 +15,7 @@ This software demonstrates basic and advanced RTC functionality using the MSP430
 * Get (or set) the current [T]ime
 * [S]et an alarm
 * [C]lear an alarm
-* S[l]eep (enter low power mode) until woken by the alarm
+* S[l]eep (enter low power mode) until woken by the alarm (using an interrupt).
 * Read the tem[p]erature (using the DS3231 chip)
 * List [c]ommands
 
@@ -59,7 +59,7 @@ Note: it is possible to utilize this board in a breadboard, if a USB extension c
 
 As this board is designed for a Raspberry Pi pinout, you will need to use jumper wires to connect this board to the Launchpad.  If you are using a breadboard, I recommend either soldering male headers on, or using male to male jumper wires.  If you are connecting directly to the Launchpad, male to female jumper wires will work fine.
 
-Unfortunately, lacks a physical connection for the Active-Low interrupt signal (required by this demonstration).  As such, we will be connecting pin to the Not Connected (NC) pin on the board.
+Unfortunately, the DS3231 for Pi lacks a physical connection for the Active-Low interrupt signal (required by this demonstration).  As such, we will be connecting pin to the Not Connected (NC) pin on the board.
 
 Pin 1 is indicated by the dimple on the package.  Pin 3 is the interrupt pin - connect it to the NC pin.
 
